@@ -31,5 +31,6 @@ Heroku Config
 * Add sbcl and enconding to avoid problems
 
 ```$ heroku config:add CL_IMPL=sbcl```
+
 ```$ heroku config:add LANG=en_US.UTF-8```
 
