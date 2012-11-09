@@ -23,8 +23,10 @@
                          (:module :views
                                   :serial t
                                   :components ((:file "layout")
-                                               (:file "index")))
-                                               ;;(:file "new")
+                                               (:file "index")
+                                               (:file "problems_new")))
+                         
+                         ;;(:file "new")
                                                ;;(:file "show")
                                                ;;(:file "edit")))
                          (:file "controllers")))))
