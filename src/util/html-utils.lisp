@@ -26,7 +26,11 @@
   (html-to-stout
    (:select :name name
             (mapcar
-             #'(lambda (x) (if (equal selected x)
-                          (htm (:option :selected "selected" :value x (fmt "~A" (mkstr x))))
-                          (htm (:option :value x (fmt "~A" (mkstr x))))))
+             #'(lambda (x) (if (equal selected (car x))
+                          (htm (:option :selected "selected" :value (car x) (fmt "~A" (mkstr (cadr x)))))
+                          (htm (:option :value (car x) (fmt "~A" (mkstr (cadr x)))))))
              options))))
+
+(defun problems-id-title (problems)
+  (loop for problem in problems
+       collect (list (problem-id problem) (problem-title problem))))
