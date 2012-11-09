@@ -4,13 +4,13 @@
   (standard-page
     (:h1 "All problems")
     (:table :id "problems"
-     (:thead
-      (:tr
-       (:th "Problem title")
-       (:th "Description")
-       (:th "Sample Input")
-       (:th "Sample Output")))
-     (:tbody
-      (all-movie-rows)))
+            (:thead
+             (:tr
+              (:th "Problem title")
+              (:th "Description")
+              (:th "Sample Input")
+              (:th "Sample Output")))
+            (:tbody
+             (all-problems-rows)))
     (:a :href "movies/new/" "Add new movie")))
-      
+

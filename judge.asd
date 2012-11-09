@@ -22,7 +22,7 @@
                          (:file "models")
                          (:module :views
                                   :serial t
-                                  :components (;;(:file "layout")
+                                  :components ((:file "layout")
                                                (:file "index")))
                                                ;;(:file "new")
                                                ;;(:file "show")

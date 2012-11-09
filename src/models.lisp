@@ -7,3 +7,4 @@
      (sample-output :col-type string :initarg :rating :accessor problem-sample-output)
      (input :col-type string :initarg :rating :accessor problem-input)
      (output :col-type string :initarg :rating :accessor problem-output)))
+
