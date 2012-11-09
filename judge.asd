@@ -6,7 +6,7 @@
                #:postmodern
                #:simple-date
                #:drakma
-               #:json
+               #:cl-json
                )
   :components ((:file "package")
                (:module :src
@@ -19,12 +19,12 @@
                                                (:file "heroku-utils")
                                                (:file "html-utils")
                                                (:file "model-utils")))
-                         (:file "model")
+                         (:file "models")
                          (:module :views
                                   :serial t
-                                  :components ((:file "layout")
-                                               (:file "index")
-                                               (:file "new")
-                                               (:file "show")
-                                               (:file "edit")))
+                                  :components (;;(:file "layout")
+                                               (:file "index")))
+                                               ;;(:file "new")
+                                               ;;(:file "show")
+                                               ;;(:file "edit")))
                          (:file "controllers")))))

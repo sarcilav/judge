@@ -1,6 +1,8 @@
+(in-package :judge)
+
 (setq *dispatch-table*
       (list
-       (create-regex-dispatcher "^/$" 'home-index)))
+       (create-regex-dispatcher "^/$" 'home-index)
 ;;        (create-regex-dispatcher "^/$" 'controller-to-index)
 ;;        (create-regex-dispatcher "^/movies$" 'controller-index)
 ;;        (create-regex-dispatcher "^/movies/new" 'controller-new)
@@ -9,7 +11,7 @@
 ;;        (create-regex-dispatcher "^/movies/[0-9]+/update" 'controller-update)
 ;;        (create-regex-dispatcher "^/movies/[0-9]+/delete" 'controller-delete)
 ;;        (create-regex-dispatcher "^/add-movie" 'controller-add-movie)
-;;        (create-static-file-dispatcher-and-handler "/site.css" "static/application.css")))
+       (create-static-file-dispatcher-and-handler "/site.css" "static/application.css")))
 
 ;; ;; Controller that do not render views are below -- those that do are in views folder
 
