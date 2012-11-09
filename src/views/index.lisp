@@ -12,5 +12,5 @@
               (:th "Sample Output")))
             (:tbody
              (all-problems-rows)))
-    (:a :href "problems/new/" "Add new problem")))
+    (:a :href "problems/new" "Add new problem")))
 

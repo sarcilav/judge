@@ -11,22 +11,21 @@
 
                  (:div
                   (:label "Description")
-                  (:input :name "problem-description" :type "textarea"))
+                  (:textarea :name "problem-description"))
 
                  (:div
                   (:label "Sample Input")
-                  (:input :name "problem-sample-input" :type "textarea"))
+                  (:textarea :name "problem-sample-input")
 
-                 (:div
                   (:label "Sample Output")
-                  (:input :name "problem-sample-output" :type "textarea"))
+                  (:textarea :name "problem-sample-output"))
 
                  (:div
                   (:label "Input")
-                  (:input :name "problem-input" :type "textarea")
+                  (:textarea :name "problem-input")
 
                   (:label "Output")
-                  (:input :name "problem-output" :type "textarea"))
+                  (:textarea :name "problem-output"))
 
                  (:div
                   (:input :name "commit" :type "submit" :value "Save Changes"))))))

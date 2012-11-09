@@ -9,5 +9,10 @@
        (:link :type "text/css" :rel "stylesheet" :href "/site.css"))
       (:body
        (:h1 :class "title" "Online Judge!")
+       (:div :id "nav-bar"
+             (:a :href "/" "Problems") "|"
+             (:a :href "/submit" "Submit") "|"
+             (:a :href "/" "Score Board"))
+
        (:div :id "main"
-	     ,@body)))))
+             ,@body)))))

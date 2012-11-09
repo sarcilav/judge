@@ -3,8 +3,13 @@
 (setq *dispatch-table*
       (list
        (create-regex-dispatcher "^/$" 'home-index)
+       ;; problems actions
        (create-regex-dispatcher "^/problems/new$" 'problems-new)
        (create-regex-dispatcher "^/add-problem$" 'add-problem)
+
+       ;;submit actions
+       (create-regex-dispatcher "^/submit$" 'submit-problem)
+       (create-regex-dispatcher "^/add-submit$" 'add-submit)
        ;;        (create-regex-dispatcher "^/$" 'controller-to-index)
        ;;        (create-regex-dispatcher "^/movies$" 'controller-index)
        ;;        (create-regex-dispatcher "^/movies/new" 'controller-new)
@@ -21,7 +26,7 @@
 ;;   (redirect "/movies"))
 
 (defun add-problem ()
-  "Form processer for adding new problem."
+  "Form processer for adding a new problem."
   (let ((title (parameter "problem-title"))
         (description (parameter "problem-description"))
         (sample-input (parameter "problem-sample-input"))
@@ -36,6 +41,13 @@
                     :output output))
   (redirect "/"))
 
+(defun add-submit ()
+  "Form processor for adding a new submit."
+  (let ((problem-id (parameter "problem-id"))
+        (language-id (parameter "language-id"))
+        (source-code (parameter "source"))
+        
+  )));; pending
 ;; (defun controller-delete ()
 ;;   (movie-delete (movie-get (get-id-from-uri)))
 ;;   (redirect "/movies"))

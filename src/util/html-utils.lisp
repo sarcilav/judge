@@ -27,10 +27,10 @@
    (:select :name name
             (mapcar
              #'(lambda (x) (if (equal selected (car x))
-                          (htm (:option :selected "selected" :value (car x) (fmt "~A" (mkstr (cadr x)))))
-                          (htm (:option :value (car x) (fmt "~A" (mkstr (cadr x)))))))
+                          (htm (:option :selected "selected" :value (car x) (fmt "~A" (mkstr (cdr x)))))
+                          (htm (:option :value (car x) (fmt "~A" (mkstr (cdr x)))))))
              options))))
 
 (defun problems-id-title (problems)
   (loop for problem in problems
-       collect (list (problem-id problem) (problem-title problem))))
+       collect (cons (problem-id problem) (problem-title problem))))
