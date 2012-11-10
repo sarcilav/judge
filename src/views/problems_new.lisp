@@ -6,6 +6,14 @@
     (:div :id "new-problem"
           (:form :action "/add-problem" :method "post"
                  (:div
+                  (:label "Username")
+                  (:input :name "username" :type "text"))
+
+                 (:div
+                  (:label "Password")
+                  (:input :name "password" :type "password"))
+
+                 (:div
                   (:label "Title")
                   (:input :name "problem-title" :size "30" :type "text"))
 

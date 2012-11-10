@@ -12,7 +12,7 @@
        (:div :id "nav-bar"
              (:a :href "/" "Problems") "|"
              (:a :href "/submit" "Submit") "|"
-             (:a :href "/" "Score Board"))
+             (:a :href "/submits" "Score Board"))
 
        (:div :id "main"
              ,@body)))))

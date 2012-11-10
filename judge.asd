@@ -7,6 +7,7 @@
                #:simple-date
                #:drakma
                #:cl-json
+               #:ironclad
                )
   :components ((:file "package")
                (:module :src
@@ -23,12 +24,10 @@
                          (:file "models")
                          (:module :views
                                   :serial t
-                                  :components ((:file "layout")
+                                  :components ((:file "submits")
+                                               (:file "layout")
                                                (:file "index")
                                                (:file "problems_new")
                                                (:file "submit_problem")))
                          
-                         ;;(:file "new")
-                                               ;;(:file "show")
-                                               ;;(:file "edit")))
                          (:file "controllers")))))

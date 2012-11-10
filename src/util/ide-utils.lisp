@@ -33,7 +33,30 @@
                        :method :post
                        :parameters (params->alist source-code language input)))
 
-(defun evaluation (source-code language input output)
-  (let ((token (submit source-code language input)))))
-    
-        
+(defun veredict (source-code language input output)
+  (let* ((token (submit source-code language input))
+         (status (submission-details token)))
+    (loop until (not
+                 (equal "wait for ideone"
+                        (cdr (assoc :error status)))) do
+         (progn
+           (sleep 3.0)
+           (setf status (submission-details token))))
+    (if (equal (cdr (assoc :error status))
+               "OK")
+        (if (equal (cdr (assoc :output status))
+                   output)
+            "accepted"
+            "wrong answer")
+        (cdr (assoc :error status)))))
+
+(defun evaluation (submit)
+  (sb-thread:make-thread (lambda ()
+                           (let* ((source-code (submit-source submit))
+                                  (language (submit-language-id submit))
+                                  (problem (problem-get (submit-problem-id submit)))
+                                 (input (problem-input problem))
+                                 (output (problem-output problem)))
+                             (setf (submit-status submit) (veredict source-code language input output))
+                             (submit-update submit)))))
+

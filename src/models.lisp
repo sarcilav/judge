@@ -9,8 +9,13 @@
      (output :col-type string :initarg :output :accessor problem-output)))
 
 (defmodel submit
-    ((language_id :col-type integer :initarg :language_id :accessor submit-language-id)
-     (user_id :col-type integer :initarg :user_id :accessor submit-user-id)
+    ((problem-id :col-type integer :initarg :problem-id :accessor submit-problem-id)
+     (language-id :col-type integer :initarg :language-id :accessor submit-language-id)
+     (user-id :col-type integer :initarg :user-id :accessor submit-user-id)
      (source :col-type text :initarg :source :accessor submit-source)
      (status :col-type string :initarg :status :accessor submit-status)
-     (submitted_at :col-type timestamp :initarg :submitted_at :accessor submit-at)))
+     (submitted-at :col-type timestamp :initarg :submitted-at :accessor submit-at)))
+
+(defmodel user
+    ((username :col-type string :initarg :username :accessor user-username)
+     (hashed-password :col-type string :initarg :hashed-password :accessor user-hashed-password)))

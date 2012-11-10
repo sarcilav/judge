@@ -10,6 +10,7 @@
        ;;submit actions
        (create-regex-dispatcher "^/submit$" 'submit-problem)
        (create-regex-dispatcher "^/add-submit$" 'add-submit)
+       (create-regex-dispatcher "^/submits$" 'submits-table)
        ;;        (create-regex-dispatcher "^/$" 'controller-to-index)
        ;;        (create-regex-dispatcher "^/movies$" 'controller-index)
        ;;        (create-regex-dispatcher "^/movies/new" 'controller-new)
@@ -27,18 +28,19 @@
 
 (defun add-problem ()
   "Form processer for adding a new problem."
-  (let ((title (parameter "problem-title"))
-        (description (parameter "problem-description"))
-        (sample-input (parameter "problem-sample-input"))
-        (sample-output (parameter "problem-sample-output"))
-        (input (parameter "problem-input"))
-        (output (parameter "problem-output")))
-    (problem-create :title title
-                    :description description
-                    :sample-input sample-input
-                    :sample-output sample-output
-                    :input input
-                    :output output))
+  (when (equal (user-username (current-user (parameter "username") (parameter "password"))) "sarcilav")
+    (let ((title (parameter "problem-title"))
+          (description (parameter "problem-description"))
+          (sample-input (parameter "problem-sample-input"))
+          (sample-output (parameter "problem-sample-output"))
+          (input (parameter "problem-input"))
+          (output (parameter "problem-output")))
+      (problem-create :title title
+                      :description description
+                      :sample-input sample-input
+                      :sample-output sample-output
+                      :input input
+                      :output output)))
   (redirect "/"))
 
 (defun add-submit ()
@@ -46,21 +48,29 @@
   (let ((problem-id (parameter "problem-id"))
         (language-id (parameter "language-id"))
         (source-code (parameter "source"))
-        
-  )));; pending
-;; (defun controller-delete ()
-;;   (movie-delete (movie-get (get-id-from-uri)))
-;;   (redirect "/movies"))
+        (user (current-user (parameter "username") (parameter "password"))))
+    (evaluation (submit-create :problem-id problem-id
+                   :language-id language-id
+                   :user-id (user-id user)
+                   :source source-code
+                   :status "pending"
+                   :submitted-at (universal-time-to-timestamp (get-universal-time)))))
+  (redirect "/submits"))
 
-;; (defun controller-update ()
-;;   (let ((title (parameter "movie-title"))
-;;  (rating (parameter "movie-rating"))
-;;  (year (parse-integer (parameter "year")))
-;;  (month (parse-integer (parameter "month")))
-;;  (day (parse-integer (parameter "day")))
-;;  (movie (movie-get (get-id-from-uri))))
-;;     (setf (movie-title movie) title
-;;    (movie-rating movie) rating
-;;    (movie-release-date movie) (encode-date year month day))
-;;     (movie-update movie))
-;;   (redirect (conc "/movies/" (get-id-from-uri))))
+
+  ;; (defun controller-delete ()
+  ;;   (movie-delete (movie-get (get-id-from-uri)))
+  ;;   (redirect "/movies"))
+
+  ;; (defun controller-update ()
+  ;;   (let ((title (parameter "movie-title"))
+  ;;  (rating (parameter "movie-rating"))
+  ;;  (year (parse-integer (parameter "year")))
+  ;;  (month (parse-integer (parameter "month")))
+  ;;  (day (parse-integer (parameter "day")))
+  ;;  (movie (movie-get (get-id-from-uri))))
+  ;;     (setf (movie-title movie) title
+  ;;    (movie-rating movie) rating
+  ;;    (movie-release-date movie) (encode-date year month day))
+  ;;     (movie-update movie))
+  ;;   (redirect (conc "/movies/" (get-id-from-uri))))
