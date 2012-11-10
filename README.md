@@ -4,10 +4,8 @@ Will be an online judge that uses [ideone](http://ideone.com/), and it will be w
 
 TODO
 ====
-* Wrap [ideone API](http://ideone.com/api)
-* Problems model and uploads
-* Submissions model and processing
-* Users (Admins, Judges, Contestants)
+* Fix comparison between expected and current output
+* Users (Admins, Judges, Contestants) # Needs a real user session
 * Scoreboard
 * Security
 
