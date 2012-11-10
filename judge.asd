@@ -24,8 +24,8 @@
                          (:file "models")
                          (:module :views
                                   :serial t
-                                  :components ((:file "submits")
-                                               (:file "layout")
+                                  :components ((:file "layout")
+                                               (:file "submits_table")
                                                (:file "index")
                                                (:file "problems_new")
                                                (:file "submit_problem")))
