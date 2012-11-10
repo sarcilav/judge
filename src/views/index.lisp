@@ -3,7 +3,7 @@
 (defun home-index ()
   (standard-page
     (:h1 "All problems")
-    (:table :id "problems"
+    (:table :id "definition" :border "1" :width "100%" :align "center"
             (:thead
              (:tr
               (:th "Problem title")

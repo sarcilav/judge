@@ -8,11 +8,11 @@
        (:title "Online Judge!")
        (:link :type "text/css" :rel "stylesheet" :href "/site.css"))
       (:body
-       (:h1 :class "title" "Online Judge!")
-       (:div :id "nav-bar"
-             (:a :href "/" "Problems") "|"
-             (:a :href "/submit" "Submit") "|"
-             (:a :href "/submits" "Score Board"))
+       (:div :id "main" :class "wrapper"
+             (:h1 :class "title" "Online Judge!")
+             (:div :id "links" 
+                   (:a :href "/" "Problems") "|"
+                   (:a :href "/submit" "Submit") "|"
+                   (:a :href "/submits" "Score Board"))
 
-       (:div :id "main"
              ,@body)))))

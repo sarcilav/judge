@@ -8,9 +8,6 @@
   "Returns the ID from the URI request."
   (car (cl-ppcre:all-matches-as-strings "[0-9]+" (request-uri *request*))))
 
-;; (defun movies-path (movie)
-;;   "Given a <Movie>, return the RESTful URI -- e.g. 'movies/3'"
-;;   (concatenate 'string "movies/" (write-to-string (movie-id movie))))
 
 (defun all-problems-rows ()
   (dolist (problem (problem-get-all))
