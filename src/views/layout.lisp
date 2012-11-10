@@ -13,6 +13,6 @@
              (:div :id "links" 
                    (:a :href "/" "Problems") "|"
                    (:a :href "/submit" "Submit") "|"
-                   (:a :href "/submits" "Score Board"))
+                   (:a :href "/submits" "Scoreboard"))
 
              ,@body)))))

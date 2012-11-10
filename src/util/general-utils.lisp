@@ -27,7 +27,7 @@
   (log-message* :info username)
   (log-message* :info password)
   (log-message* :info (hash-password password))
-  (log-message* :info (user-id (car (user-select (:and
+  (log-message* :info (user-id (car (users-select (:and
                      (:= 'username username)
                      (:= 'hashed_password (hash-password password)))))))
 

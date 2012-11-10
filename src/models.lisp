@@ -16,6 +16,6 @@
      (status :col-type string :initarg :status :accessor submit-status)
      (submitted-at :col-type timestamp :initarg :submitted-at :accessor submit-at)))
 
-(defmodel user
+(defmodel users
     ((username :col-type string :initarg :username :accessor user-username)
      (hashed-password :col-type string :initarg :hashed-password :accessor user-hashed-password)))
