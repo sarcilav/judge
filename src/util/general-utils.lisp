@@ -24,13 +24,6 @@
     (ironclad:ascii-string-to-byte-array password))))
 
 (defun current-user (username password)
-  (log-message* :info username)
-  (log-message* :info password)
-  (log-message* :info (hash-password password))
-  (log-message* :info (user-id (car (users-select (:and
-                     (:= 'username username)
-                     (:= 'hashed_password (hash-password password)))))))
-
-  (car (user-select (:and
+  (car (users-select (:and
                      (:= 'username username)
                      (:= 'hashed_password (hash-password password))))))
