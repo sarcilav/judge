@@ -33,6 +33,15 @@
                        :method :post
                        :parameters (params->alist source-code language input)))
 
+(defun clean-output (output)
+  (string-trim "
+" (coerce (remove-if (lambda (x) (eq x #\Return)) (coerce output 'list)) 'string)))
+
+(defun compare-output-p (expected current)
+  (let ((cleaned-expected (clean-output expected))
+        (cleaned-current (clean-output current)))
+    (string= cleaned-expected cleaned-current)))
+         
 (defun veredict (source-code language input output)
   (let* ((token (submit source-code language input))
          (status (submission-details token)))
@@ -40,11 +49,12 @@
                  (equal "wait for ideone"
                         (cdr (assoc :error status)))) do
          (progn
+           (print "inside")
            (sleep 3.0)
            (setf status (submission-details token))))
     (if (equal (cdr (assoc :error status))
                "OK")
-        (if (equal (cdr (assoc :output status))
+        (if (compare-output-p (cdr (assoc :output status))
                    output)
             "accepted"
             "wrong answer")
