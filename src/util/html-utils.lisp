@@ -40,5 +40,6 @@
     (html-to-stout
       (:tr
        (:td (fmt "~a" (user-username (users-get (submit-user-id submit)))))
+       (:td (fmt "~a" (problem-title (problem-get (submit-problem-id submit)))))
        (:td (fmt "~a" (get-language-name (submit-language-id submit))))
        (:td (fmt "~a" (submit-status submit)))))))

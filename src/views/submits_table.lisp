@@ -7,6 +7,7 @@
             (:thead
              (:tr
               (:th "Username")
+              (:th "Problem")
               (:th "Language")
               (:th "Status")))
             (:tbody
